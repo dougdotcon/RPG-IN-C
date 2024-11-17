@@ -1,0 +1,7 @@
+O que preciso fazer no codigo: 
+erro = eu destino está entrelaçado com o local de onde você vem. Logo, você nasceu e foi criado(a) em (null). 
+hunt sem xp 
+level 
+reutilizar dados do perfil antigo e n iniciar do 0 
+melhorar a forma como será possivel ganhar pontos de progresso 
+o inventario n esta bom
