@@ -17,7 +17,6 @@ struct Mob{
 struct Area{
   char nome[50];
   struct Mob mob; 
-  char *suaArea;//mudei por enquanto
 };
  
 struct Area area1 = {"Castle Town", {"Gárgula", "Assas de Gárgula"},"Descrição de Castle Town"}; 
@@ -47,6 +46,10 @@ struct Area* definirAreaNascimento(const char* classedef){
     else if (strcmp(classedef, "Druida") == 0) {
       suaArea = &area2;
     }   
+    if (suaArea == NULL) {
+      printf("Erro: Classe não reconhecida.\n");
+      return NULL;
+    } 
 
   FILE *arquivo = fopen("Perfil.txt", "a+");  
   if (arquivo == NULL) {

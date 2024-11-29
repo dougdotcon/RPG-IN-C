@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>  
 #include <stdlib.h> 
@@ -87,13 +88,16 @@ int identificar_acao(char *comando){
 }
 
   
-int main(){ 
+int main(){  
+   
+  FILE *arquivo1; 
+  arquivo1 = fopen("config.txt", "r"); //para verificar se o  jogador já jogou ou é a primeira vez
+  char linha[100]; 
 
   int tamanho = 0;
   int progresso = 1; // Exemplo de progresso do jogador
   char comando[50];   
-  
-  const char* classeJogador = quizclasse(); 
+
   
   struct Item items[100];
   //struct Area* area;
