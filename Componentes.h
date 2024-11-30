@@ -9,10 +9,11 @@
            
 #define MAX_ITENS_INV 500
      
-const char* quizclasse(); 
+const char* quizclasse();
 void helpmenu();
 
-int primeiravez(){ //Função para verificar se o jogador já jogou ou é a primeira vez.
+const char* primeiravez(){ //Função para verificar se o jogador já jogou ou é a primeira vez.
+  const char* classeJogador; 
   FILE *arquivo1; 
   arquivo1 = fopen("config.txt", "r"); 
 
@@ -21,40 +22,41 @@ int primeiravez(){ //Função para verificar se o jogador já jogou ou é a prim
 
     if (arquivo1 == NULL) {
       printf("Erro ao criar o arquivo de configuração.\n");
-      return -1;
+      return NULL;
     } 
 
-    fprintf(arquivo1, "0\n");
+    fprintf(arquivo1, "0");
     fclose(arquivo1);  
 
-    quizclasse(); 
+    classeJogador = quizclasse(); 
      
     arquivo1 = fopen("config.txt", "w+"); 
 
     if (arquivo1 == NULL) {
       printf("Erro ao atualizar o arquivo de configuração.\n");
-      return -1;
+      return NULL;
     } 
 
-    fprintf(arquivo1, "1\n");
+    fprintf(arquivo1, "1");
     fclose(arquivo1);
   } 
   else{ //Lê o arquivo existente para verificar o estado 
     int primeira_vez;
-    fscanf(arquivo1, "%d", &primeira_vez);
+    fscanf(arquivo1, "%d", &primeira_vez); 
+    //printf("Valor lido de primeira_vez: %d\n", primeira_vez);
     fclose(arquivo1);
 
     if (primeira_vez == 0){ //O documento existe mas o quest não foi concluido então roda o questionário.
       printf("Bem-vindo novamente! Conclua o questionário.\n");
-      quizclasse();
+      classeJogador = quizclasse();
 
       // Atualiza o arquivo para indicar que não é mais a primeira vez
       arquivo1 = fopen("config.txt", "w+");
       if (arquivo1 == NULL) {
         printf("Erro ao atualizar o arquivo de configuração.\n");
-        return -1;
+        return NULL;
       }
-      fprintf(arquivo1, "1\n");
+      fprintf(arquivo1, "1");
       fclose(arquivo1);
     }  
     else {
@@ -63,7 +65,7 @@ int primeiravez(){ //Função para verificar se o jogador já jogou ou é a prim
       helpmenu();
     }
   }
-  return 0; 
+  return classeJogador; 
 }
 
 

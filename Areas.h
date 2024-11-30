@@ -18,7 +18,6 @@ struct Area{
   char nome[50];
   struct Mob mob;  
   char descricao[100]; 
-  char suaArea[20];
 };
  
 struct Area area1 = {"Castle Town", {"Gárgula", "Assas de Gárgula"},"Descrição de Castle Town"}; 

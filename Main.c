@@ -13,15 +13,15 @@ const char* quizclasse();
 void helpmenu();
 int primeiravez(); 
 
-int main(){    
-   
-  primeiravez();
+int main(){     
+
+  const char* classeJogador; 
+  classeJogador = primeiravez();
 
   int tamanho = 0;
   int progresso = 0; // Exemplo de progresso do jogador
   char comando[50];    
    
-  const char* classeJogador = quizclasse();
   struct Item items[100];
   const struct Area* areaNascimento = definirAreaNascimento (classeJogador); //Se ela for declarada dentro de um if ou else, por exemplo, ela não estará disponível fora desses blocos.
   const struct Personagem personagemEscolhido = criarPersonagem(classeJogador);  

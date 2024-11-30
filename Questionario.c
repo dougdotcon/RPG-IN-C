@@ -35,18 +35,19 @@ const char* quizclasse(){
   printf("\n\t\t+---------------------------------------------------+\n");
  
   scanf(" %c", &tecla); // Adicione um espaço antes de %c para ignorar espaços em branco
-
+ 
+  const char* classedef = NULL;
 
   if(tecla == 'x' || tecla == 'X'){
     printf("Saindo da seleção."); 
-    return 0;
-  } 
-
+    return NULL;
+  }  
+  
   else if (tecla == 'O'|| tecla == 'o'){
 
     printf("\nResponda as perguntas com honestidade.\n\n");
 
-  // Perguntas parte 1 
+    // Perguntas parte 1 
     do{    
       printf("1. Qual estilo de combate voce prefere?\n"); 
       printf("   a) De perto, corpo a corpo\n"); 
@@ -242,7 +243,7 @@ const char* quizclasse(){
     const char* classes[] = {"guerreiro", "assassino", "barbaro", "ladino", "clerigo", "ranger", "paladino", "mago", "bruxo", "atirador", "necromante", "cavaleiro", "druida"}; 
   
     int maiorPontuacao = pontuacoes[0];  
-    const char* classedef = classes[0];;
+    classedef = classes[0];
     
     for (int i = 0; i < 12; i++){ 
       if (pontuacoes[i] > maiorPontuacao) {
@@ -253,7 +254,6 @@ const char* quizclasse(){
   
     printf("\n╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺\n");
     printf("Sua classe e: %s", classedef); 
-    //retorno = perfil(classedef);
 
     FILE *arquivo = fopen("Perfil.txt", "a+");  
     if (arquivo == NULL) {
@@ -262,16 +262,17 @@ const char* quizclasse(){
     }
     fprintf(arquivo, "Sua classe é %s.\n\n", classedef); 
     fclose(arquivo); 
-    
-    return classedef;  
-    /*Retorna um ponteiro para uma string (const char*).  
+     
+  }  
+  return classedef;   
+}
+  
+#endif 
+ 
+/*Retorna um ponteiro para uma string (const char*).  
     a variável classedef aponta para um elemento do array estático classes, que é seguro pq 
     o array classes tem duração de vida estática e permanece válido durante toda a execução do programa.
     Porém, em outros cenários, pode surgir um problema se tentar retornar um ponteiro para uma variável 
     local ou para uma string alocada na stack (pilha). Isso porque variáveis locais têm duração limitada  
     ao escopo em que foram declaradas. Assim que a função retorna, as variáveis locais deixam de existir,  
     e qualquer ponteiro que as referencie passa a ser inválido, levando a comportamento indefinido*/
-  }
-}
-  
-#endif
