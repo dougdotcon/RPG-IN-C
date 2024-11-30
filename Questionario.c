@@ -147,7 +147,7 @@ const char* quizclasse(){
       printf("4. De onde vem o seu poder?\n");
         printf("   a) Forca fisica e treinamento especifico.\n"); 
         printf("   b) Fe inabalavel e/ou devocao a um ideal.\n"); 
-        printf("   c) Estudo e conhecimento de magias antigas.\n");
+        printf("   c) Estudo e conhecimento.\n");
         scanf(" %c", &num4);
 
         if (num4 == 'a' || num4 == 'A'){ 
@@ -244,10 +244,10 @@ const char* quizclasse(){
     const char* classedef = classes[0];;
     
     for (int i = 0; i < 12; i++){ 
-        if (pontuacoes[i] > maiorPontuacao) {
-            maiorPontuacao = pontuacoes[i];
-            classedef = classes[i];
-        }
+      if (pontuacoes[i] > maiorPontuacao) {
+        maiorPontuacao = pontuacoes[i];
+        classedef = classes[i];
+      }
     }
   
     printf("\n╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺\n");
@@ -271,8 +271,8 @@ const char* quizclasse(){
     ao escopo em que foram declaradas. Assim que a função retorna, as variáveis locais deixam de existir,  
     e qualquer ponteiro que as referencie passa a ser inválido, levando a comportamento indefinido*/
   }else{
-        printf("Invalido.");  
-        return 0; 
+    printf("Invalido.");  
+    return 0; 
   }
  
 }
