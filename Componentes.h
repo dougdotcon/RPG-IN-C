@@ -8,7 +8,71 @@
 #include "Areas.h"  
            
 #define MAX_ITENS_INV 500
-  
+     
+const char* quizclasse(); 
+void helpmenu();
+
+int primeiravez(){ //Função para verificar se o jogador já jogou ou é a primeira vez.
+  FILE *arquivo1; 
+  arquivo1 = fopen("config.txt", "r"); 
+
+  if (arquivo1 == NULL){ //Não existe o arquivo, então cria ele e define como primeira vez, ou seja, 0.
+    arquivo1 = fopen("config.txt", "w");  
+
+    if (arquivo1 == NULL) {
+      printf("Erro ao criar o arquivo de configuração.\n");
+      return -1;
+    } 
+
+    fprintf(arquivo1, "0\n");
+    fclose(arquivo1);  
+
+    quizclasse(); 
+     
+    arquivo1 = fopen("config.txt", "w+"); 
+
+    if (arquivo1 == NULL) {
+      printf("Erro ao atualizar o arquivo de configuração.\n");
+      return -1;
+    } 
+
+    fprintf(arquivo1, "1\n");
+    fclose(arquivo1);
+  } 
+  else{ //Lê o arquivo existente para verificar o estado 
+    int primeira_vez;
+    fscanf(arquivo1, "%d", &primeira_vez);
+    fclose(arquivo1);
+
+    if (primeira_vez == 0){ //O documento existe mas o quest não foi concluido então roda o questionário.
+      printf("Bem-vindo novamente! Conclua o questionário.\n");
+      quizclasse();
+
+      // Atualiza o arquivo para indicar que não é mais a primeira vez
+      arquivo1 = fopen("config.txt", "w+");
+      if (arquivo1 == NULL) {
+        printf("Erro ao atualizar o arquivo de configuração.\n");
+        return -1;
+      }
+      fprintf(arquivo1, "1\n");
+      fclose(arquivo1);
+    }  
+    else {
+      // Não é a primeira vez, então roda apenas o menu
+      printf("Bem-vindo de volta!\n");
+      helpmenu();
+    }
+  }
+  return 0; 
+}
+
+
+
+
+
+
+   
+
 void inventario(struct Item *itens, int tamanho){
   if(tamanho < 0 || tamanho > MAX_ITENS_INV){
     printf("Tamanho de inventario invalido!");

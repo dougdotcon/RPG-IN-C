@@ -1,7 +1,12 @@
-O que preciso fazer no codigo: 
+O que preciso fazer no codigo:  
+ 
+URGENTE
 erro = eu destino está entrelaçado com o local de onde você vem. Logo, você nasceu e foi criado(a) em (null). 
+ 
+IMPORTANTE  
 hunt sem xp 
-level 
-reutilizar dados do perfil antigo e n iniciar do 0 
+level   
+ 
+EXTRA
 melhorar a forma como será possivel ganhar pontos de progresso 
 o inventario n esta bom

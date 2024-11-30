@@ -235,7 +235,8 @@ const char* quizclasse(){
       else{ 
         printf("Opcao invalida, por favor escolha uma opcao valida.\n");
       }
-    } while(num6 != 'a' && num6 != 'A' && num6 != 'b' && num6 != 'B' && num6 != 'c' && num6!= 'C' && num6 != 'd' && num6 != 'D' && num6 != 'e' && num6 != 'E');    
+    }  
+    while(num6 != 'a' && num6 != 'A' && num6 != 'b' && num6 != 'B' && num6 != 'c' && num6!= 'C' && num6 != 'd' && num6 != 'D' && num6 != 'e' && num6 != 'E');    
 
     int pontuacoes[] = {guerreiro, assassino, barbaro, ladino, clerigo, ranger, paladino, mago, bruxo, atirador, necromante, cavaleiro, druida};  
     const char* classes[] = {"guerreiro", "assassino", "barbaro", "ladino", "clerigo", "ranger", "paladino", "mago", "bruxo", "atirador", "necromante", "cavaleiro", "druida"}; 
@@ -270,11 +271,7 @@ const char* quizclasse(){
     local ou para uma string alocada na stack (pilha). Isso porque variáveis locais têm duração limitada  
     ao escopo em que foram declaradas. Assim que a função retorna, as variáveis locais deixam de existir,  
     e qualquer ponteiro que as referencie passa a ser inválido, levando a comportamento indefinido*/
-  }else{
-    printf("Invalido.");  
-    return 0; 
   }
- 
 }
   
 #endif

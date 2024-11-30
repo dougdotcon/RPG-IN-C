@@ -7,39 +7,21 @@
 #include "Classes.h" 
 #include "Questionario.c" 
 #include "Areas.h"  
-#include "Componentes.h" 
+#include "Componentes.h"  
+ 
+const char* quizclasse(); 
+void helpmenu();
+int primeiravez(); 
 
-int main(){  
-     
-  FILE *arquivo1; 
-  arquivo1 = fopen("config.txt", "r"); //para verificar se o  jogador já jogou ou é a primeira vez
-  char linha[100];  
-  const char* classeJogador; 
-
-  if (arquivo1 == NULL) {  // Cria o arquivo e define como primeira vez
-    arquivo1 = fopen("config.txt", "a+");
-    fprintf(arquivo1, "primeira_vez=0\n");
-    fclose(arquivo1); 
-    classeJogador = quizclasse();
-  }  
-  else {  // Lê o valor de primeira_vez
-    fgets(linha, 100, arquivo1);
-      if (strstr(linha, "primeira_vez=0") != NULL) { //é a primeira vez
-        classeJogador = quizclasse();
-        // Atualiza o arquivo para indicar que não é mais a primeira vez
-        arquivo1 = fopen("config.txt", "w");
-        fprintf(arquivo1, "primeira_vez=1\n");
-        fclose(arquivo1);
-      }  
-      else {
-        void helpmenu();
-      }
-    }
+int main(){    
+   
+  primeiravez();
 
   int tamanho = 0;
-  int progresso = 1; // Exemplo de progresso do jogador
+  int progresso = 0; // Exemplo de progresso do jogador
   char comando[50];    
-  
+   
+  const char* classeJogador = quizclasse();
   struct Item items[100];
   const struct Area* areaNascimento = definirAreaNascimento (classeJogador); //Se ela for declarada dentro de um if ou else, por exemplo, ela não estará disponível fora desses blocos.
   const struct Personagem personagemEscolhido = criarPersonagem(classeJogador);  

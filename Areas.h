@@ -17,7 +17,8 @@ struct Mob{
 struct Area{
   char nome[50];
   struct Mob mob;  
-  char descricao[100];
+  char descricao[100]; 
+  char suaArea[20];
 };
  
 struct Area area1 = {"Castle Town", {"Gárgula", "Assas de Gárgula"},"Descrição de Castle Town"}; 
@@ -26,9 +27,9 @@ struct Area area3 = {"Aetheria", {"Manticore", "Veneno"},"Descrição de Aetheri
 struct Area area4 = {"Aztlan", {"Gigante de pedra", "Cristais"},"Descrição de Aztlan"}; 
 struct Area area5 = {"Tenebris", {"Peixe", "Escama"},"Descrição de Tenebris"}; 
 
-struct Area* definirAreaNascimento(const char* classedef){  
-  struct Area* suaArea = NULL; 
-  
+struct Area* definirAreaNascimento(const char* classedef){   
+  struct Area* suaArea; 
+
     if (strcmp(classedef, "Guerreiro") == 0 || strcmp(classedef, "Arqueiro") == 0 ||
       strcmp(classedef, "Ranger") == 0 || strcmp(classedef, "Paladino") == 0 ||
       strcmp(classedef, "Atirador") == 0 || strcmp(classedef, "cavaleiro") == 0) {
