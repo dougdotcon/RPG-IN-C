@@ -1,4 +1,5 @@
 #include "Classes.h"
+#include "CyberpunkStyle.h"
 #include <stdio.h>
 
 // Função auxiliar para inicializar personagem
@@ -85,11 +86,22 @@ void ganharXP(struct Personagem* personagem, int xp_ganho) {
     
     // Aumentar XP necessário para próximo level
     personagem->xp_proximo_level = (int)(personagem->xp_proximo_level * 1.5);
-    
-    printf("\n*** LEVEL UP! ***\n");
-    printf("Você subiu para o level %d!\n", personagem->level);
-    printf("Vida: +5, Força: +2, Defesa: +1\n");
-    printf("******************\n");
+
+    printf("\n");
+    print_cyberpunk_border();
+    printf(NEON_CYAN "|" NEON_MAGENTA "                      [ LEVEL UP! ]                              " NEON_CYAN "|\n");
+    printf("|                                                                      |\n");
+    printf("|" BRIGHT_YELLOW "              NEURAL ENHANCEMENT ACTIVATED                         " NEON_CYAN "|\n");
+    printf("|" NEON_GREEN "              Level: " BRIGHT_CYAN "%02d" NEON_GREEN " -> " BRIGHT_CYAN "%02d                                    " NEON_CYAN "|\n",
+           personagem->level - 1, personagem->level);
+    printf("|                                                                      |\n");
+    printf(NEON_CYAN "|");
+    printf(NEON_RED " VIDA: " BRIGHT_RED "+05" NEON_CYAN "  |");
+    printf(NEON_YELLOW " FORCA: " BRIGHT_YELLOW "+02" NEON_CYAN "  |");
+    printf(CYBER_BLUE " DEFESA: " BRIGHT_BLUE "+01" NEON_CYAN "  |\n" RESET);
+    printf("|                                                                      |\n");
+    printf("|" BRIGHT_GREEN "                ENHANCEMENT COMPLETE                            " NEON_CYAN "|\n");
+    print_cyberpunk_border_end();
   }
 }
 

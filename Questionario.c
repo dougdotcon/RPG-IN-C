@@ -1,9 +1,10 @@
 #ifndef QUESTIONARIO_H
-#define QUESTIONARIO_H 
+#define QUESTIONARIO_H
 
 #include <locale.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "CyberpunkStyle.h"
 
 
 const char* quizclasse(){ 
@@ -13,47 +14,53 @@ const char* quizclasse(){
   int guerreiro=0, assassino=0, barbaro=0, ladino=0, clerigo=0, ranger=0, paladino=0, mago=0, bruxo=0, atirador=0, necromante=0, cavaleiro=0, druida=0;
   char tecla; 
  
-  printf("\n\t\t+---------------------------------------------------+");
-  printf("\n\t\t                                                   "); 
-  printf("\n\t\t       ___           ___           ___              ");
-  printf("\n\t\t      /\\  \\         /\\  \\         /\\  \\               ");
-  printf("\n\t\t     /::\\  \\       /::\\  \\       /::\\  \\             ");
-  printf("\n\t\t    /:/\\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\            ");
-  printf("\n\t\t   /::\\~\\:\\  \\   /::\\~\\:\\  \\   /:/  \\:\\  \\            ");
-  printf("\n\t\t  /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\ /:/__/_\\:\\__\\          ");
-  printf("\n\t\t  \\/_|::\\/:/  / \\/__\\:\\/:/  / \\:\\  /\\ \\/__/          ");
-  printf("\n\t\t     |:|::/  /       \\::/  /   \\:\\ \\:\\__\\               ");
-  printf("\n\t\t     |:|\\/__/         \\/__/     \\:\\/:/  /               ");
-  printf("\n\t\t     |:|  |                      \\::/  /                ");
-  printf("\n\t\t      \\|__|                       \\/__/                 "); 
-  printf("\n\t\t                                                     ");
-  printf("\n\t\t                 Bem-vindo ao RPG                    ");
-  printf("\n\t\t                                                   ");
-  printf("\n\t\t+---------------------------------------------------+");
-  printf("\n\t\t|   > Pressione O para comecar a selecao de classe  |     ");
-  printf("\n\t\t|   > Pressione X para sair                         |");
-  printf("\n\t\t+---------------------------------------------------+\n");
+  clear_screen();
+  print_cyberpunk_header();
+  printf("\n");
+  print_cyberpunk_border();
+  printf(NEON_CYAN "|" BRIGHT_YELLOW "                    [ NEURAL CLASS SELECTION ]                    " NEON_CYAN "|\n");
+  printf("|                                                                      |\n");
+  printf("|" NEON_GREEN "  > Digite 'O' para iniciar selecao de classe neural              " NEON_CYAN "|\n");
+  printf("|" NEON_RED "  > Digite 'X' para desconectar do sistema                       " NEON_CYAN "|\n");
+  printf("|                                                                      |\n");
+  print_cyberpunk_border_end();
+  printf(NEON_YELLOW "\n[SISTEMA] Aguardando comando: " RESET);
  
   scanf(" %c", &tecla); // Adicione um espaço antes de %c para ignorar espaços em branco
  
   const char* classedef = NULL;
 
   if(tecla == 'x' || tecla == 'X'){
-    printf("Saindo da seleção."); 
+    printf(NEON_RED "\n[SISTEMA] Desconectando interface neural...\n" RESET);
+    print_loading_bar(100);
+    printf(NEON_RED "\n[SISTEMA] Conexão encerrada.\n" RESET);
     return NULL;
-  }  
-  
+  }
+
   else if (tecla == 'O'|| tecla == 'o'){
+    printf(NEON_GREEN "\n[SISTEMA] Iniciando analise psicologica neural...\n" RESET);
+    print_loading_bar(100);
+    printf("\n\n");
 
-    printf("\nResponda as perguntas com honestidade.\n\n");
+    print_cyberpunk_border();
+    printf(NEON_CYAN "|" NEON_MAGENTA "                    [ ANALISE PSICOLOGICA ]                       " NEON_CYAN "|\n");
+    printf("|" BRIGHT_YELLOW "              Responda com honestidade para calibracao             " NEON_CYAN "|\n");
+    printf("|                                                                      |\n");
+    print_cyberpunk_border_end();
+    printf("\n");
 
-    // Perguntas parte 1 
-    do{    
-      printf("1. Qual estilo de combate voce prefere?\n"); 
-      printf("   a) De perto, corpo a corpo\n"); 
-      printf("   b) A distancia, ataques de longo alcance\n");   
-      printf("   c) Equilibrio entre ataque e defesa, com magias de suporte.\n");  
-      scanf(" %c", &num1); 
+    // Perguntas parte 1
+    do{
+      printf(NEON_CYAN "+======================================================================+\n");
+      printf("|" NEON_YELLOW " [Q1] Protocolo de Combate Preferido:                             " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("|" NEON_GREEN "   [A] Combate corpo-a-corpo / Implantes de forca                 " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [B] Combate a distancia / Sistemas de mira neural              " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [C] Hibrido tatico / Suporte cibernetico                       " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("+======================================================================+\n" RESET);
+      printf(NEON_YELLOW "[INPUT] Selecione protocolo: " RESET);
+      scanf(" %c", &num1);
 
       if (num1 == 'a' || num1 == 'A'){ 
         guerreiro += 10; 
@@ -74,18 +81,23 @@ const char* quizclasse(){
         paladino += 22;
         ranger += 22; 
         druida +=22;
-      } 
-      else{ 
-        printf("Opcao invalida, por favor escolha uma opcao valida.\n");
       }
-    } while(num1 != 'a' && num1 != 'A' && num1 != 'b' && num1 != 'B' && num1 != 'c' && num1 != 'C'); 
+      else{
+        printf(NEON_RED "[ERRO] Protocolo inválido. Recalibrando...\n" RESET);
+      }
+    } while(num1 != 'a' && num1 != 'A' && num1 != 'b' && num1 != 'B' && num1 != 'c' && num1 != 'C');
 
     do{
-      printf("2.  Voce prefere usar armas, magias ou uma combinacao de ambos?\n"); 
-      printf("   a) Armas, sejam espadas, lancas ou machados.\n"); 
-      printf("   b) Magias, conjurando fogo, gelo ou raios.\n"); 
-      printf("   c) Uma combinacao de armas e magias, adaptando-se a situacao.\n");
-      scanf(" %c", &num2);  
+      printf(NEON_CYAN "\n+======================================================================+\n");
+      printf("|" NEON_YELLOW " [Q2] Sistema de Armamento Preferido:                             " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("|" NEON_GREEN "   [A] Armas fisicas / Implantes de combate                       " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [B] Sistemas energeticos / Hacking neural                      " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [C] Arsenal hibrido / Adaptacao situacional                    " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("+======================================================================+\n" RESET);
+      printf(NEON_YELLOW "[INPUT] Selecione armamento: " RESET);
+      scanf(" %c", &num2);
 
       if (num2 == 'a' || num2 == 'A'){ 
         guerreiro += 10;  
@@ -105,18 +117,23 @@ const char* quizclasse(){
         ranger += 15;  
         ladino += 15; 
         druida +=15;
-      }   
-      else{ 
-        printf("Opcao invalida, por favor escolha uma opcao valida.\n");
+      }
+      else{
+        printf(NEON_RED "[ERRO] Armamento inválido. Recalibrando...\n" RESET);
       }
     } while(num2 != 'a' && num2 != 'A' && num2 != 'b' && num2 != 'B' && num2 != 'c' && num2 != 'C');
 
     do{
-      printf("3. Qual e o seu foco principal em combate?\n");
-      printf("   a) Proteger seus aliados e liderar.\n"); 
-      printf("   b) Eliminar seus inimigos com rapidez e eficiencia.\n"); 
-      printf("   c) Controlar o campo de batalha e curar seus aliados.\n");
-      scanf(" %c", &num3);  
+      printf(NEON_CYAN "\n+======================================================================+\n");
+      printf("|" NEON_YELLOW " [Q3] Protocolo Tatico Principal:                                 " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("|" NEON_GREEN "   [A] Protecao de equipe / Lideranca tatica                      " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [B] Eliminacao rapida / Eficiencia letal                       " NEON_CYAN "|\n");
+      printf("|" NEON_GREEN "   [C] Controle de campo / Suporte medico                          " NEON_CYAN "|\n");
+      printf("|                                                                      |\n");
+      printf("+======================================================================+\n" RESET);
+      printf(NEON_YELLOW "[INPUT] Selecione tática: " RESET);
+      scanf(" %c", &num3);
 
       if (num3 == 'a' || num3 == 'A'){ 
         guerreiro += 5; 
@@ -252,8 +269,14 @@ const char* quizclasse(){
       }
     }
   
-    printf("\n╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺╺\n");
-    printf("Sua classe e: %s", classedef); 
+    printf("\n");
+    print_cyberpunk_border();
+    printf(NEON_CYAN "|" NEON_MAGENTA "                    [ ANALISE COMPLETA ]                          " NEON_CYAN "|\n");
+    printf("|                                                                      |\n");
+    printf("|" NEON_GREEN "  Classe Neural Detectada: " NEON_YELLOW "%-32s" NEON_CYAN "|\n", classedef);
+    printf("|                                                                      |\n");
+    printf("|" BRIGHT_YELLOW "              [ CALIBRACAO NEURAL CONCLUIDA ]                     " NEON_CYAN "|\n");
+    print_cyberpunk_border_end();
 
     FILE *arquivo = fopen("Perfil.txt", "a+");  
     if (arquivo == NULL) {

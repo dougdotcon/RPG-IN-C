@@ -7,6 +7,7 @@
 #include "Classes.h"
 #include "Areas.h"
 #include "Componentes.h"
+#include "CyberpunkStyle.h"
 
 const char* quizclasse();
 
@@ -56,12 +57,16 @@ int main(){
   
   srand(time(NULL)); //inicializar a semente
 
-  printf("\nDigite um comando: (Para saber um comando válido, digite help)\n"); 
-  scanf("%s", comando);  
-  
-  int acao = identificar_acao(comando); 
-  
   while(1){
+    printf("\n");
+    print_cyberpunk_menu_header();
+    printf("|" NEON_YELLOW " [INPUT] Digite comando neural: " RESET);
+    scanf("%s", comando);
+    printf(NEON_CYAN "|                                                                      |\n");
+    print_cyberpunk_menu_footer();
+
+    int acao = identificar_acao(comando);
+
     switch(acao) {
       case 1:
         hunt(items, areaNascimento, &tamanho, &personagemEscolhido);
@@ -85,13 +90,13 @@ int main(){
         salvar_jogo(nome, classeJogador, personagemEscolhido, items, tamanho);
         break;
       default:
-        printf("Comando inválido.\n");
+        printf("\n");
+        print_cyberpunk_border();
+        printf(NEON_CYAN "|" NEON_RED "                    [ COMANDO INVALIDO ]                          " NEON_CYAN "|\n");
+        printf("|" BRIGHT_YELLOW "                Digite 'help' para ver comandos                    " NEON_CYAN "|\n");
+        print_cyberpunk_border_end();
         break;
     }
-
-    printf("\n\nDigite um comando: (Para saber um comando válido, digite help)\n"); 
-    scanf("%s", comando);  
-    acao = identificar_acao(comando);
   }
   
   return 0;

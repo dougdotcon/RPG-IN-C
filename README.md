@@ -17,14 +17,26 @@ Este é um projeto de RPG desenvolvido em linguagem C, contendo sistemas básico
 
 Para compilar o projeto, utilize o seguinte comando no terminal:
 
+**Versão Original:**
 ```bash
 gcc Main.c Questionario.c Componentes.c Classes.c Areas.c -o output/rpg_game
 ```
 
+**Versão Cyberpunk (Recomendada):**
+```bash
+gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_rpg
+```
+
 Para executar o jogo:
 
+**Versão Original:**
 ```bash
 ./output/rpg_game
+```
+
+**Versão Cyberpunk:**
+```bash
+./output/cyberpunk_rpg
 ```
 
 ## Funcionalidades Principais
