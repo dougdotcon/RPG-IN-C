@@ -6,9 +6,12 @@
 // Definição da estrutura Personagem
 struct Personagem {
   int vida;
+  int vida_max;
   int forca;
   int defesa;
-  int level; 
+  int level;
+  int xp;
+  int xp_proximo_level;
   int progresso;
 };
 
@@ -16,9 +19,13 @@ struct Personagem {
 struct Personagem criarGuerreiro() {
   struct Personagem guerreiro;
     guerreiro.vida = 18;
+    guerreiro.vida_max = 18;
     guerreiro.forca = 18;
     guerreiro.defesa = 14;
     guerreiro.level = 1;
+    guerreiro.xp = 0;
+    guerreiro.xp_proximo_level = 100;
+    guerreiro.progresso = 0;
     return guerreiro;
 }
 

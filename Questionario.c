@@ -230,9 +230,9 @@ const char* quizclasse(){
       else if(num6 == 'd' || num6 == 'D'){ 
         assassino += 15;
       } 
-      else if(num1 == 'e' || num6 == 'E'){ 
+      else if(num6 == 'e' || num6 == 'E'){
         ladino += 12;
-      }  
+      }
       else{ 
         printf("Opcao invalida, por favor escolha uma opcao valida.\n");
       }
@@ -245,7 +245,7 @@ const char* quizclasse(){
     int maiorPontuacao = pontuacoes[0];  
     classedef = classes[0];
     
-    for (int i = 0; i < 12; i++){ 
+    for (int i = 0; i < 13; i++){ // Corrigido para 13 classes
       if (pontuacoes[i] > maiorPontuacao) {
         maiorPontuacao = pontuacoes[i];
         classedef = classes[i];

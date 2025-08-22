@@ -26,31 +26,35 @@ struct Area area3 = {"Aetheria", {"Manticore", "Veneno"},"Descrição de Aetheri
 struct Area area4 = {"Aztlan", {"Gigante de pedra", "Cristais"},"Descrição de Aztlan"}; 
 struct Area area5 = {"Tenebris", {"Peixe", "Escama"},"Descrição de Tenebris"}; 
 
-struct Area* definirAreaNascimento(const char* classedef){   
-  struct Area* suaArea; 
+struct Area* definirAreaNascimento(const char* classedef){
+  struct Area* suaArea = NULL; // Inicializar com NULL
 
-    if (strcmp(classedef, "Guerreiro") == 0 || strcmp(classedef, "Arqueiro") == 0 ||
-      strcmp(classedef, "Ranger") == 0 || strcmp(classedef, "Paladino") == 0 ||
-      strcmp(classedef, "Atirador") == 0 || strcmp(classedef, "cavaleiro") == 0) {
+    if (strcmp(classedef, "guerreiro") == 0 || strcmp(classedef, "ranger") == 0 ||
+      strcmp(classedef, "paladino") == 0 || strcmp(classedef, "atirador") == 0 ||
+      strcmp(classedef, "cavaleiro") == 0) {
       suaArea = &area1;
-    }  
-    else if (strcmp(classedef, "Assassino") == 0 || strcmp(classedef, "Bárbaro") == 0 ||
-      strcmp(classedef, "Ladino") == 0) {
+    }
+    else if (strcmp(classedef, "assassino") == 0 || strcmp(classedef, "barbaro") == 0 ||
+      strcmp(classedef, "ladino") == 0) {
       suaArea = &area4;
-    }  
-    else if (strcmp(classedef, "Bruxo") == 0 || strcmp(classedef, "mago") == 0) {
+    }
+    else if (strcmp(classedef, "bruxo") == 0 || strcmp(classedef, "mago") == 0) {
       suaArea = &area3;
-    }  
-    else if (strcmp(classedef, "Necromante") == 0) {
+    }
+    else if (strcmp(classedef, "necromante") == 0) {
       suaArea = &area5;
-    }  
-    else if (strcmp(classedef, "Druida") == 0) {
+    }
+    else if (strcmp(classedef, "druida") == 0) {
       suaArea = &area2;
-    }   
+    }
+    else if (strcmp(classedef, "clerigo") == 0) {
+      suaArea = &area1; // Clérigo também nasce em Castle Town
+    }
+
     if (suaArea == NULL) {
-      printf("Erro: Classe não reconhecida.\n");
+      printf("Erro: Classe '%s' não reconhecida.\n", classedef);
       return NULL;
-    } 
+    }
 
   FILE *arquivo = fopen("Perfil.txt", "a+");  
   if (arquivo == NULL) {

@@ -1,13 +1,12 @@
 
 #include <stdio.h>
-#include <string.h>  
-#include <stdlib.h> 
+#include <string.h>
+#include <stdlib.h>
 #include <time.h>
 
-#include "Classes.h" 
-#include "Questionario.c" 
-#include "Areas.h"  
-#include "Componentes.h"  
+#include "Classes.h"
+#include "Areas.h"
+#include "Componentes.h"
  
 const char* quizclasse(); 
 void helpmenu();
@@ -26,15 +25,21 @@ int main(){
   const struct Area* areaNascimento = definirAreaNascimento (classeJogador); //Se ela for declarada dentro de um if ou else, por exemplo, ela não estará disponível fora desses blocos.
   const struct Personagem personagemEscolhido = criarPersonagem(classeJogador);  
   
-  char* nome; 
-  nome = (char *)malloc(50 * sizeof(char)); 
+  char nome[100]; // Buffer fixo para evitar problemas de memória
 
-  int tamnome = 0;
-  printf("\nDigite seu nome:\n");  
-  scanf("%[^\n]s", nome);
-  tamnome = strlen(nome); 
-  nome = (char *)malloc((tamnome+1) * sizeof(char)); 
-  perfil(classeJogador, personagemEscolhido, nome);  
+  // Limpar buffer de entrada antes de ler o nome
+  int c;
+  while ((c = getchar()) != '\n' && c != EOF);
+
+  printf("\nDigite seu nome:\n");
+  fgets(nome, sizeof(nome), stdin); // Usar fgets ao invés de scanf para segurança
+
+  // Remover quebra de linha se presente
+  size_t len = strlen(nome);
+  if (len > 0 && nome[len-1] == '\n') {
+    nome[len-1] = '\0';
+  }
+  perfil(classeJogador, personagemEscolhido, nome);
   
  
  
