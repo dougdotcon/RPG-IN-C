@@ -62,14 +62,18 @@ brew install gcc            # macOS
 ### ⚡ **Instalação Rápida**
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/cyber-rpg.git
+git clone https://github.com/elyz0/cyber-rpg.git
 cd cyber-rpg
 
-# Compile a versão cyberpunk
-gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o cyberpunk_rpg
+# Compile usando Makefile (recomendado)
+make cyberpunk
 
 # Execute o sistema
-./cyberpunk_rpg
+make run
+
+# Ou compile manualmente
+gcc src/Main.c src/Questionario.c src/Componentes.c src/Classes.c src/Areas.c src/CyberpunkStyle.c -o build/cyberpunk_rpg
+./build/cyberpunk_rpg
 ```
 
 ### 🎮 **Primeira Execução**
@@ -88,22 +92,49 @@ gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o cy
 
 ### 🔥 **Versão Cyberpunk (Recomendada)**
 ```bash
-gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_rpg
+make cyberpunk
+# ou manualmente:
+gcc src/Main.c src/Questionario.c src/Componentes.c src/Classes.c src/Areas.c src/CyberpunkStyle.c -o build/cyberpunk_rpg
 ```
 
 ### 📝 **Versão Clássica**
 ```bash
-gcc Main.c Questionario.c Componentes.c Classes.c Areas.c -o output/rpg_classic
+make classic
+# ou manualmente:
+gcc src/Main.c src/Questionario.c src/Componentes.c src/Classes.c src/Areas.c -o build/rpg_classic
 ```
 
 ### 🐛 **Versão Debug**
 ```bash
-gcc -g -Wall -Wextra Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_debug
+make debug
+# ou manualmente:
+gcc -g -Wall -Wextra src/Main.c src/Questionario.c src/Componentes.c src/Classes.c src/Areas.c src/CyberpunkStyle.c -o build/cyberpunk_debug
 ```
 
-### ⚡ **Versão Otimizada**
+### ⚡ **Comandos de Compilação**
+
+#### 🐧 **Linux/macOS (Makefile)**
 ```bash
-gcc -O3 -DNDEBUG Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_optimized
+make help          # Mostra todos os comandos disponíveis
+make run           # Compila e executa versão cyberpunk
+make run-classic   # Compila e executa versão clássica
+make run-debug     # Compila e executa versão debug
+make clean         # Remove executáveis
+make clean-all     # Remove todos os arquivos gerados
+```
+
+#### 🪟 **Windows/Git Bash (Script)**
+```bash
+./build.sh help          # Mostra todos os comandos disponíveis
+./build.sh run           # Compila e executa versão cyberpunk
+./build.sh run-classic   # Compila e executa versão clássica
+./build.sh run-debug     # Compila e executa versão debug
+./build.sh clean         # Remove executáveis
+./build.sh clean-all     # Remove todos os arquivos gerados
+
+# Ou no CMD/PowerShell:
+build.bat help           # Mostra comandos (Windows nativo)
+build.bat run            # Compila e executa
 ```
 
 </details>
@@ -245,14 +276,22 @@ ENHANCEMENT COMPLETE
 
 ```
 cyber-rpg/
-├── 📄 Main.c              # Loop principal e controle
-├── 🎭 Classes.c/.h        # Sistema de classes e XP
-├── 🌍 Areas.c/.h          # Definições de áreas
-├── ❓ Questionario.c/.h   # Sistema de análise neural
-├── 🔧 Componentes.c/.h    # Funções auxiliares
-├── 🎨 CyberpunkStyle.c/.h # Interface visual
-├── 📁 output/             # Executáveis compilados
-└── 📖 README.md           # Documentação
+├── � src/                # Código fonte
+│   ├── �📄 Main.c              # Loop principal e controle
+│   ├── 🎭 Classes.c/.h        # Sistema de classes e XP
+│   ├── 🌍 Areas.c/.h          # Definições de áreas
+│   ├── ❓ Questionario.c/.h   # Sistema de análise neural
+│   ├── 🔧 Componentes.c/.h    # Funções auxiliares
+│   └── 🎨 CyberpunkStyle.c/.h # Interface visual
+├── 📁 build/              # Executáveis compilados
+├── 📁 saves/              # Arquivos de save do jogo
+├── 📁 docs/               # Documentação e anotações
+├── 📁 assets/             # Recursos (imagens, logos)
+├── 🔧 Makefile            # Automação de compilação (Linux/macOS)
+├── 📜 build.sh            # Script de compilação (Unix/Git Bash)
+├── 📜 build.bat           # Script de compilação (Windows CMD)
+├── 🚫 .gitignore          # Arquivos ignorados pelo git
+└── 📖 README.md           # Documentação principal
 ```
 
 </details>
@@ -322,7 +361,7 @@ cyber-rpg/
 5. 🔄 **Abra** um Pull Request
 
 ### 🐛 **Reportar Bugs**
-Encontrou um bug? [Abra uma issue](https://github.com/seu-usuario/cyber-rpg/issues) com:
+Encontrou um bug? [Abra uma issue](https://github.com/elyz0/cyber-rpg/issues) com:
 - 📝 Descrição detalhada
 - 🔄 Passos para reproduzir
 - 💻 Ambiente (OS, compilador)
@@ -359,7 +398,7 @@ Desenvolvido com 💙 em C
 
 **⭐ Se você gostou do projeto, deixe uma estrela!**
 
-[![GitHub stars](https://img.shields.io/github/stars/seu-usuario/cyber-rpg?style=social)](https://github.com/seu-usuario/cyber-rpg/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/seu-usuario/cyber-rpg?style=social)](https://github.com/seu-usuario/cyber-rpg/network)
+[![GitHub stars](https://img.shields.io/github/stars/elyz0/cyber-rpg?style=social)](https://github.com/elyz0/cyber-rpg/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/elyz0/cyber-rpg?style=social)](https://github.com/elyz0/cyber-rpg/network)
 
 </div>

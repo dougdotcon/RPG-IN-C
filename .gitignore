@@ -1,0 +1,60 @@
+# Executáveis
+*.exe
+*.out
+cyberpunk_rpg
+rpg_classic
+cyberpunk_debug
+
+# Diretórios de build
+build/
+!build/.gitkeep
+
+# Arquivos de save do jogo
+saves/*.txt
+saves/*.dat
+saves/*.sav
+!saves/.gitkeep
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos do editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Arquivos de compilação
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+
+# Cache Python (se houver scripts auxiliares)
+__pycache__/
+*.pyc
+*.pyo
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de configuração local
+config_local.txt
+settings_local.txt
+
+# Arquivos de debug
+core
+*.core
+gdb.txt
+valgrind.log
