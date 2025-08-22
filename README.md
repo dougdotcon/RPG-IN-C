@@ -1,109 +1,365 @@
-<img src="logo.png" alt="Logo do C-RPG Engine" width="250">
+<div align="center">
 
-# C-RPG Engine
-
-Este é um projeto de RPG desenvolvido em linguagem C, contendo sistemas básicos de gerenciamento de áreas, classes de personagens e componentes de jogo.
-
-## Estrutura de Arquivos
-
-- `Main.c`: Arquivo principal contendo a função `main()` e loop central do jogo
-- `Questionario.c`: Implementação de sistemas de diálogo e questionários
-- `Areas.h`: Definições de estruturas para áreas/mapas do jogo
-- `Classes.h`: Definições de classes de personagens e atributos
-- `Componentes.h`: Componentes gerais para mecânicas de jogo
-- `output/`: Diretório contendo executáveis compilados
-
-## Compilação e Execução
-
-Para compilar o projeto, utilize o seguinte comando no terminal:
-
-**Versão Original:**
-```bash
-gcc Main.c Questionario.c Componentes.c Classes.c Areas.c -o output/rpg_game
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                         CYBER RPG SYSTEM                            ║
+║                      _____ _   _ ____  _____ ____                    ║
+║                     / ____| \ | |  _ \|  ___/ ___|                   ║
+║                    | |    |  \| | |_) | |_  \___ \                   ║
+║                    | |___ | |\  |  _ <|  _|  ___) |                  ║
+║                     \____|_| \_|_| \_\_|   |____/                   ║
+║                                                                      ║
+║                        ____  ____   ____                            ║
+║                       |  _ \|  _ \ / ___|                           ║
+║                       | |_) | |_) | |  _                            ║
+║                       |  _ <|  __/| |_| |                           ║
+║                       |_| \_\_|    \____|                           ║
+║                                                                      ║
+║                    [ NEURAL INTERFACE ACTIVATED ]                    ║
+║                      [ SYSTEM STATUS: ONLINE ]                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
 
-**Versão Cyberpunk (Recomendada):**
+<h1>🤖 CYBER RPG - Sistema Neural de Combate 🎮</h1>
+
+[![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
+[![Terminal](https://img.shields.io/badge/Terminal-4D4D4D?style=for-the-badge&logo=windows-terminal&logoColor=white)](https://github.com/microsoft/terminal)
+[![License](https://img.shields.io/badge/License-MIT-cyan?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-ONLINE-brightgreen?style=for-the-badge)](README.md)
+
+**Um RPG cyberpunk desenvolvido em C puro com interface neural futurista**
+
+*Mergulhe em um mundo onde a tecnologia e a magia se encontram*
+
+</div>
+
+---
+
+## 🌟 **OVERVIEW DO SISTEMA**
+
+Este é um **sistema de RPG cyberpunk** desenvolvido em linguagem C, apresentando uma interface neural futurista e mecânicas de jogo avançadas. O projeto combina programação em C de baixo nível com uma experiência visual imersiva.
+
+### 🎯 **Características Principais**
+- 🧠 **Interface Neural**: Visual cyberpunk com cores ANSI
+- ⚔️ **Sistema de Combate**: Mecânicas de RPG clássico
+- 🎭 **13 Classes Únicas**: Cada uma com características especiais
+- 🌍 **5 Áreas Exploráveis**: Mundos únicos com monstros específicos
+- 💾 **Sistema de Save**: Persistência completa de dados
+- 📊 **Progressão XP**: Sistema de level up balanceado
+
+---
+
+## 🚀 **QUICK START**
+
+### 📋 **Pré-requisitos**
+```bash
+# Compilador GCC
+sudo apt install gcc        # Ubuntu/Debian
+brew install gcc            # macOS
+# Windows: MinGW ou WSL
+```
+
+### ⚡ **Instalação Rápida**
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/cyber-rpg.git
+cd cyber-rpg
+
+# Compile a versão cyberpunk
+gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o cyberpunk_rpg
+
+# Execute o sistema
+./cyberpunk_rpg
+```
+
+### 🎮 **Primeira Execução**
+1. **Inicie** o sistema neural
+2. **Responda** ao questionário psicológico
+3. **Descubra** sua classe ideal
+4. **Explore** o mundo cyberpunk
+5. **Evolua** seu personagem
+
+---
+
+## 🛠️ **COMPILAÇÃO AVANÇADA**
+
+<details>
+<summary>📦 <strong>Opções de Compilação</strong></summary>
+
+### 🔥 **Versão Cyberpunk (Recomendada)**
 ```bash
 gcc Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_rpg
 ```
 
-Para executar o jogo:
-
-**Versão Original:**
+### 📝 **Versão Clássica**
 ```bash
-./output/rpg_game
+gcc Main.c Questionario.c Componentes.c Classes.c Areas.c -o output/rpg_classic
 ```
 
-**Versão Cyberpunk:**
+### 🐛 **Versão Debug**
 ```bash
-./output/cyberpunk_rpg
+gcc -g -Wall -Wextra Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_debug
 ```
 
-## Funcionalidades Principais
+### ⚡ **Versão Otimizada**
+```bash
+gcc -O3 -DNDEBUG Main.c Questionario.c Componentes.c Classes.c Areas.c CyberpunkStyle.c -o output/cyberpunk_optimized
+```
 
-### Sistema de Classes
-- 13 classes diferentes: Guerreiro, Assassino, Bárbaro, Ladino, Clérigo, Ranger, Paladino, Mago, Bruxo, Atirador, Necromante, Cavaleiro, Druida
-- Cada classe possui atributos únicos (vida, força, defesa)
-- Sistema de questionário inteligente para determinar a classe ideal
+</details>
 
-### Sistema de Progressão
-- **Sistema de XP**: Ganhe experiência caçando monstros
-- **Level Up**: Aumente seus atributos ao subir de nível
-- **Progressão Balanceada**: XP necessário aumenta progressivamente
+---
 
-### Sistema de Inventário
-- **Coleta de Itens**: Itens dropados por monstros com stats aleatórios
-- **Uso de Itens**: Sistema para usar itens e aplicar seus efeitos
-- **Gestão Inteligente**: Inventário com limite e organização automática
+## 🎭 **SISTEMA DE CLASSES**
 
-### Sistema de Áreas
-- **5 Áreas Distintas**: Cada uma com monstros e drops únicos
-- **Área de Nascimento**: Determinada pela classe escolhida
-- **Exploração**: Informações detalhadas sobre cada área
+<div align="center">
 
-### Sistema de Save/Load
-- **Salvamento Automático**: Salve seu progresso a qualquer momento
-- **Carregamento**: Continue de onde parou automaticamente
-- **Persistência**: Mantém personagem, inventário e progresso
+| 🛡️ **TANQUES** | ⚔️ **DPS** | 🏹 **RANGED** | 🔮 **MÁGICOS** |
+|:---:|:---:|:---:|:---:|
+| Guerreiro | Assassino | Atirador | Mago |
+| Paladino | Bárbaro | Ranger | Bruxo |
+| Cavaleiro | Ladino | - | Necromante |
+| - | - | - | Clérigo |
+| - | - | - | Druida |
 
-### Interface Melhorada
-- **Comandos Intuitivos**: Sistema de comandos fácil de usar
-- **Feedback Visual**: Informações claras sobre ações e resultados
-- **Menu de Ajuda**: Lista completa de comandos disponíveis
+</div>
 
-## Comandos Disponíveis
+### 🧬 **Análise Neural de Classes**
+Cada classe é determinada através de um **questionário psicológico neural** que analisa:
+- 🎯 **Protocolo de Combate**: Preferências táticas
+- 🔫 **Sistema de Armamento**: Estilo de luta
+- 🧠 **Perfil Psicológico**: Personalidade do operador
 
-Durante o jogo, você pode usar os seguintes comandos:
+---
 
-- `hunt` - Caçar monstros na área atual e ganhar XP
-- `perfil` - Ver informações detalhadas do seu personagem
-- `inventario` - Visualizar itens coletados
-- `usar` - Usar um item do inventário
-- `area` - Ver informações da área atual
-- `salvar` - Salvar o progresso do jogo
-- `help` - Mostrar lista de comandos
+## 🌍 **ÁREAS EXPLORÁVEIS**
 
-## Melhorias Implementadas
+<table align="center">
+<tr>
+<th>🏰 Área</th>
+<th>👹 Hostil</th>
+<th>💎 Loot</th>
+<th>🎭 Classes</th>
+</tr>
+<tr>
+<td><strong>Castle Town</strong></td>
+<td>Gárgula</td>
+<td>Asas de Gárgula</td>
+<td>Guerreiro, Ranger, Paladino</td>
+</tr>
+<tr>
+<td><strong>Forest</strong></td>
+<td>Dragão</td>
+<td>Escama de Dragão</td>
+<td>Druida</td>
+</tr>
+<tr>
+<td><strong>Aetheria</strong></td>
+<td>Manticore</td>
+<td>Veneno</td>
+<td>Bruxo, Mago</td>
+</tr>
+<tr>
+<td><strong>Aztlan</strong></td>
+<td>Gigante de Pedra</td>
+<td>Cristais</td>
+<td>Assassino, Bárbaro, Ladino</td>
+</tr>
+<tr>
+<td><strong>Tenebris</strong></td>
+<td>Peixe Abissal</td>
+<td>Escama Sombria</td>
+<td>Necromante</td>
+</tr>
+</table>
 
-### Correções de Bugs
-- ✅ Corrigido bug do `(null)` na área de nascimento
-- ✅ Corrigido vazamento de memória no sistema de nomes
-- ✅ Corrigido inconsistências entre nomes de classes
-- ✅ Corrigido sistema de drop rate
+---
 
-### Novas Funcionalidades
-- ✅ Sistema completo de XP e Level Up
-- ✅ Sistema de save/load funcional
-- ✅ Sistema de uso de itens
-- ✅ Interface melhorada com feedback visual
-- ✅ Comando para visualizar área atual
+## 💻 **COMANDOS NEURAIS**
 
-### Refatoração de Código
-- ✅ Separação adequada entre headers e implementações
-- ✅ Organização modular do código
-- ✅ Eliminação de definições múltiplas
-- ✅ Melhoria na estrutura de arquivos
+<div align="center">
 
-## Contribuição
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                    [ COMANDOS NEURAIS ]                             ║
+║                                                                      ║
+║ hunt       - Engajar hostis na area atual                           ║
+║ help       - Exibir interface de comandos                           ║
+║ perfil     - Acessar dados do operador                              ║
+║ inventario - Verificar inventario neural                            ║
+║ usar       - Ativar item do inventario                              ║
+║ area       - Escanear area atual                                    ║
+║ salvar     - Salvar dados na memoria                                ║
+║                                                                      ║
+║                  [ INTERFACE ATIVA ]                                ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorias no projeto.
+</div>
+
+---
+
+## 📊 **SISTEMA DE PROGRESSÃO**
+
+### 🆙 **Level Up Neural**
+```
+[ LEVEL UP! ]
+NEURAL ENHANCEMENT ACTIVATED
+Level: 01 -> 02
+
+VIDA: +05  |  FORCA: +02  |  DEFESA: +01
+
+ENHANCEMENT COMPLETE
+```
+
+### 📈 **Mecânicas de XP**
+- 🎯 **Base XP**: 15-24 por combate
+- 📊 **Progressão**: XP necessário aumenta 50% por level
+- ⚡ **Bonus**: Drop rate melhora com progresso
+- 🔄 **Reset**: Vida restaurada ao subir de level
+
+---
+
+## 🎨 **INTERFACE CYBERPUNK**
+
+### 🌈 **Sistema de Cores**
+- 🔵 **NEON_CYAN**: Bordas e estrutura
+- 🟣 **NEON_MAGENTA**: Títulos e headers
+- 🟢 **NEON_GREEN**: Comandos e sucesso
+- 🟡 **BRIGHT_YELLOW**: Avisos e input
+- 🔴 **NEON_RED**: Erros e combate
+- ⚪ **BRIGHT_WHITE**: Dados do usuário
+
+### 🖼️ **Elementos Visuais**
+- ✨ **ASCII Art**: Logo cyberpunk personalizado
+- 📦 **Bordas**: Caracteres compatíveis universalmente
+- 📊 **Barras**: Progresso visual com `[##########]`
+- 🎭 **Temas**: Terminologia neural consistente
+
+---
+
+## 🏗️ **ARQUITETURA DO CÓDIGO**
+
+<details>
+<summary>📁 <strong>Estrutura de Arquivos</strong></summary>
+
+```
+cyber-rpg/
+├── 📄 Main.c              # Loop principal e controle
+├── 🎭 Classes.c/.h        # Sistema de classes e XP
+├── 🌍 Areas.c/.h          # Definições de áreas
+├── ❓ Questionario.c/.h   # Sistema de análise neural
+├── 🔧 Componentes.c/.h    # Funções auxiliares
+├── 🎨 CyberpunkStyle.c/.h # Interface visual
+├── 📁 output/             # Executáveis compilados
+└── 📖 README.md           # Documentação
+```
+
+</details>
+
+<details>
+<summary>🔧 <strong>Módulos Principais</strong></summary>
+
+### 🧠 **CyberpunkStyle**
+- Cores ANSI e formatação
+- Funções de interface visual
+- Compatibilidade multiplataforma
+
+### 🎭 **Classes**
+- Definições de 13 classes
+- Sistema de XP e level up
+- Balanceamento de atributos
+
+### 🌍 **Areas**
+- 5 áreas únicas
+- Sistema de spawn por classe
+- Monstros e drops específicos
+
+### 🎮 **Componentes**
+- Sistema de inventário
+- Mecânicas de combate
+- Save/Load de progresso
+
+</details>
+
+---
+
+## ✅ **MELHORIAS IMPLEMENTADAS**
+
+### 🐛 **Correções Críticas**
+- [x] Bug do `(null)` na área de nascimento
+- [x] Vazamento de memória no sistema de nomes
+- [x] Inconsistências entre nomes de classes
+- [x] Sistema de drop rate corrigido
+- [x] Compatibilidade de caracteres especiais
+
+### 🚀 **Novas Funcionalidades**
+- [x] Sistema completo de XP e Level Up
+- [x] Interface cyberpunk com cores ANSI
+- [x] Sistema de save/load funcional
+- [x] Sistema de uso de itens
+- [x] Comando para visualizar área atual
+- [x] Barra de progresso visual
+
+### 🏗️ **Refatoração**
+- [x] Separação modular de código
+- [x] Headers limpos com apenas declarações
+- [x] Eliminação de definições múltiplas
+- [x] Arquitetura escalável
+
+---
+
+## 🤝 **CONTRIBUIÇÃO**
+
+<div align="center">
+
+### 🌟 **Como Contribuir**
+
+1. 🍴 **Fork** o projeto
+2. 🌿 **Crie** uma branch (`git checkout -b feature/nova-funcionalidade`)
+3. 💾 **Commit** suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. 📤 **Push** para a branch (`git push origin feature/nova-funcionalidade`)
+5. 🔄 **Abra** um Pull Request
+
+### 🐛 **Reportar Bugs**
+Encontrou um bug? [Abra uma issue](https://github.com/seu-usuario/cyber-rpg/issues) com:
+- 📝 Descrição detalhada
+- 🔄 Passos para reproduzir
+- 💻 Ambiente (OS, compilador)
+- 📸 Screenshots se aplicável
+
+</div>
+
+---
+
+## 📜 **LICENÇA**
+
+<div align="center">
+
+Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+```
+Copyright (c) 2024 Cyber RPG System
+Desenvolvido com 💙 em C
+```
+
+</div>
+
+---
+
+<div align="center">
+
+### 🚀 **SISTEMA NEURAL ATIVO**
+
+```
+[ NEURAL INTERFACE ACTIVATED ]
+[ SYSTEM STATUS: ONLINE ]
+[ READY FOR COMBAT ]
+```
+
+**⭐ Se você gostou do projeto, deixe uma estrela!**
+
+[![GitHub stars](https://img.shields.io/github/stars/seu-usuario/cyber-rpg?style=social)](https://github.com/seu-usuario/cyber-rpg/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/seu-usuario/cyber-rpg?style=social)](https://github.com/seu-usuario/cyber-rpg/network)
+
+</div>
