@@ -1,4 +1,4 @@
-![Logo do C-RPG Engine](logo.png)
+![Logo do C-RPG Engine](logo.png "Logo do C-RPG Engine" =250x)
 
 # C-RPG Engine
 
